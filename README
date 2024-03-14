@@ -1,0 +1,63 @@
+# Doresc corectarea manuală a testelor pentru tema 1.
+### Strejaru Mihai-Cristian
+# Tema 1: Metode Numerice
+---
+# 1. Markov is coming ...
+- `function [Labyrinth] = parse_labyrinth(file_path)`
+
+    &#8594; Deschid fisierul si citesc linie cu linie matricea.
+- `function [Adj] = get_adjacency_matrix(Labyrinth)`
+
+    &#8594; Parcurg matricea si in functie de codificare setez sau nu o legatura intre doua noduri ale grafului determinat din matricea initiala.
+- `function [Link] = get_link_matrix(Labyrinth)`
+
+    &#8594; Construiesc matricea lanturilor Markov, facand suma fiecarei linii si apoi impartind toate elementele la aceasta. 
+- `function [G, c] = get_Jacobi_parameters(Link)`
+
+    &#8594; Calculez matricele penntru Jacobi.
+- `function [x, err, steps] = perform_iterative(G, c, x0, tol, max_steps)`
+
+    &#8594; Caut solutia prin metoda Jacobi pana cand ajung la toleranta ceruta si solutia aproximativa.
+- `function [path] = heuristic_greedy(start_position, probabilities, Adj)`
+
+    &#8594; Merg prin matrice pana cand ajung intr-un nod in care probabilitatea de castig este 1. La fiecare pas imi construisc un sir de viitoare stari posibile care nu au mai fost vizitate si aleg dintre nodurile in care pot sa merg pe cel cu probabilitatea cea mai mare de castig.
+- `function [decoded_path] = decode_path(path, lines, cols)`
+
+    &#8594; Determin pe ce linie si coloana se afla noduril care duc spre castig.
+---
+# 2. Linear Regression
+- `function [Y, InitialMatrix] = parse_data_set_file(file_path)`
+
+    &#8594; Deschid fisierul si citesc dimensiunile matricelor ca apoi sa retin primul element al fiecarei linii in Y si restul elementelor in InitialMatrix.
+- `function [FeatureMatrix] = prepare_for_regression(InitialMatrix)`
+
+    &#8594; Modific matricea originala astfel incat sa existe doar numere si am grija sa inserez o coloana noua dupa ce dau de o coloana cu stringuri de tipul "furnished".
+- `function [Error] = linear_regression_cost_function(Theta, Y, FeatureMatrix)`
+
+    &#8594; Elimin primul element din vectorul de greutati si il inmultesc cu matricea numerica obtinuta anterior din care apoi scad Y si ridic la patrat inmultind matricea obtinuta cu ea transpusa. Astfel se obtine o matrice cu o linie si o coloana, singurul element reprezentand eroare dorita. 
+- `function [InitialMatrix, Y] = parse_csv_file(file_path)`
+
+    &#8594; Citesc tot textul fisierului pe care apoi il parsez, retinand informatiile intr-o matrice.
+- `function [Theta] = gradient_descent(FeatureMatrix, Y, n, m, alpha, iter)`
+
+    &#8594; Aplic formula si la final adaug o prima noua linie matricei coloana Theta.
+- `function [Theta] = normal_equation(FeaturesMatrix, Y, tol, iter)`
+
+    &#8594; Aplic algoritmul pana cand ajung la toleranta ceruta si la final adaug o prima noua linie la noul Theta obtinut. Daca matricea initiala nu este definita ma opresc si returnez un vector de greutati alcatuit numai din zerouri.
+- `function [Error] = lasso_regression_cost_function(Theta, Y, FeMatrix, lambda)`
+
+    &#8594; Aplic formula de la cost doar ca la final adaug la eraore coeficietul inmultit cu suma elementelor din vectorul Theta.
+- `function [Error] = ridge_regression_cost_function(Theta, Y, FeMatrix, lambda)`
+
+    &#8594; Aplic formula de la cost doar ca la final adaug coeficientul inmultit cu suma patratelor elementelor din vectorul Theta.
+---
+# 3. MNIST 101
+- `function [X, y] = load_dataset(path)`
+
+    &#8594; Folosesc funtia 'load' pentru a citi cele doua matrice X si Y.
+- `function [x_train, y_train, X_test, y_test] = split_dataset(X, y, percent)`
+
+    &#8594; Folosesc functia 'randperm' ca sa amestec datele si sa construiesc matricele noi.
+- `function [matrix] = initialize_weights(L_prev, L_next)`
+
+    &#8594; Folosesc formula pentru epsilon si apoi generez o matrice cu elemente random intre unu si zero pe care apoi o inmultesc cu doi si epsilon si scad epsilon ca sa duc toate elementele in intervalul (-epsilon, epsilon).
