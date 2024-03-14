@@ -1,0 +1,83 @@
+\documentclass{article}
+\usepackage[margin=2cm]{geometry}
+\usepackage{graphicx}
+
+\title{ReadMe}
+\author{Strejaru Mihai-Cristian}
+\date{Mai 2023}
+\begin{document}
+\maketitle
+\vspace{-6cm}
+\includegraphics[width=2cm]{logo.jpg}
+\includegraphics[width=2cm]{upb.png}
+\vspace{5cm}
+\section{Task 1}
+\begin{itemize}
+    \item Acest algoritm aplică Descompunerea Valorilor 
+    Singulare (SVD) unei matrici foto date, reduce 
+    dimensiunile acesteia prin selectarea celor mai 
+    semnificative componente și reconstruiește o 
+    aproximare a matricei originale.
+\end{itemize}
+
+\section{Task 2}
+\begin{itemize}
+    \item Algoritmul aplică PCA pentru a reduce 
+    dimensiunea matricei foto și a reconstrui o 
+    aproximare a acesteia, utilizând un număr specificat 
+    de Componente Principale pentru 
+    aproximare. Prin reducerea dimensiunilor, algoritmul
+    obține o reprezentare compactă a imaginii, păstrând 
+    totuși informațiile importante necesare pentru 
+    reconstrucția acesteia.
+\end{itemize}
+
+\section{Task 3}
+\begin{itemize}
+    \item Se efectuează Analiza Componentelor Principale (PCA) 
+    pentru a reduce dimensionalitatea matricei foto de 
+    intrare și se reconstruiește o aproximare a matricei 
+    originale prin selectarea Componentelor Principale 
+    cele mai semnificative. Procesul implică calcularea 
+    matricei de covarianță, găsirea vectorilor și a 
+    valorilor proprii, selectarea componentelor principale
+    relevante și transformarea și reconstrucția matricei 
+    pentru a obține o compresie a datelor și o reprezentare 
+    compactă a imaginii.
+\end{itemize}
+
+\section{Task 4}
+\begin{itemize}
+    \item Imaginile de antrenament și etichetele corespunzătoare 
+    sunt încărcate din fișier folosind comanda load. 
+    Apoi, folosesc algoritmul PCA pentru a reduce 
+    dimensionalitatea datelor și pentru a extrage 
+    caracteristicile relevante ale imaginilor. Aceasta 
+    implică calcularea mediei fiecărei coloane și 
+    normalizarea datelor, calcularea matricei de 
+    covarianță, determinarea vectorilor și valorilor 
+    proprii, sortarea acestora și selectarea componentelor 
+    principale. Apoi, se proiectează imaginile de 
+    antrenament în spațiul componentelor principale și se 
+    reconstruiește imaginea de test utilizând doar un număr
+    specificat de componente principale. Folosesc algoritmul
+    k-nearest neighbors pentru a prezice cifra reprezentată 
+    de imaginea de test, selectând cele mai apropiate k 
+    imagini din setul de antrenament.
+\end{itemize}
+
+\section{Observatii}
+\begin{itemize}
+    \item Cu cât numarul de componente semnificative 
+    incluse(k) ese mai mare, cu atat se va obtine o 
+    aproximare mai precisă a matricei foto inițiale. 
+    În schimb, cu cât k este mai mic, cu atât mai multă 
+    informație este pierdută în procesul de reducere a 
+    dimensiunilor, ceea ce poate duce la o imagine 
+    generată mai comprimată și cu detalii mai puține. 
+    Deci, alegerea valorii optime pentru k este importantă
+    pentru a obține un echilibru între calitatea 
+    aproximării și nivelul de comprimare dorit.
+\end{itemize}
+
+\end{document}
